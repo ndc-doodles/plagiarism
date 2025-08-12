@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black">
+  
+  <header class="bg-gray-700 shadow">
+    <div class="fixed top-0 left-0 w-full bg-gray-700 shadow px-28 mx-auto p-4 flex justify-between items-center z-50">
+ <a href="index.html"> <h1 class="text-2xl font-bold text-gray-200 uppercase">AI Plagiarism Checker</h1></a>
+      <nav>
+        <a href="index.html" class="text-gray-400 hover:text-[#027e6f] px-4">Home</a>
+        <a href="history.html" class="text-[#027e6f] hover:text-[#027e6f] px-4">History</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="max-w-7xl mx-auto mt-32 bg-transparent p-8">
+    <h2 class="text-xl font-semibold mb-4 text-white">Past Checks</h2>
+    <table class="w-full border border-gray-300">
+      <thead>
+        <tr class="bg-gray-400 text-left">
+          <th class="p-3 border">Date</th>
+          <th class="p-3 border">File Name</th>
+          <th class="p-3 border">Plagiarism %</th>
+          <th class="p-3 border">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="p-3 border text-white">2025-08-11</td>
+          <td class="p-3 border text-white">project.docx</td>
+          <td class="p-3 border text-red-600">45%</td>
+          <td class="p-3 border">
+            <button onclick="openModal()" class="text-blue-600 hover:underline">View</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div id="reportModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white w-3/4 md:w-1/2 rounded-lg shadow-lg p-6 relative">
+      <h3 class="text-xl font-semibold mb-4">Plagiarism Report</h3>
+      <p class="mb-4 text-gray-700">
+        File: <strong>project.docx</strong><br>
+        Date Checked: <strong>2025-08-11</strong><br>
+        Plagiarism Percentage: <span class="text-red-600 font-bold">45%</span>
+      </p>
+      <div class="bg-gray-100 p-4 rounded-lg max-h-60 overflow-y-auto">
+        <p><strong>Details:</strong></p>
+        <ul class="list-disc list-inside text-gray-700">
+          <li>Matches found from: <em>example.com</em></li>
+          <li>Similar content in section 2 of your file</li>
+          <li>Recommended to rewrite introduction paragraph</li>
+        </ul>
+      </div>
+      <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-500 hover:text-black text-2xl">&times;</button>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById("reportModal").classList.remove("hidden");
+      document.getElementById("reportModal").classList.add("flex");
+    }
+    function closeModal() {
+      document.getElementById("reportModal").classList.add("hidden");
+      document.getElementById("reportModal").classList.remove("flex");
+    }
+  </script>
+
+</body>
+</html>
