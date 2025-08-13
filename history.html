@@ -8,19 +8,46 @@
 </head>
 <body class="bg-black">
   
-  <header class="bg-gray-700 shadow">
-    <div class="fixed top-0 left-0 w-full bg-gray-700 shadow px-28 mx-auto p-4 flex justify-between items-center z-50">
- <a href="index.html"> <h1 class="text-2xl font-bold text-gray-200 uppercase">AI Plagiarism Checker</h1></a>
-      <nav>
-        <a href="index.html" class="text-gray-400 hover:text-[#027e6f] px-4">Home</a>
-        <a href="history.html" class="text-[#027e6f] hover:text-[#027e6f] px-4">History</a>
-      </nav>
-    </div>
-  </header>
+<header class="bg-gray-700 shadow fixed top-0 left-0 w-full z-50">
+  <div class="px-6 md:px-28 p-4 flex justify-between items-center">
+    
+    <a href="index.html">
+      <h1 class="text-xl md:text-2xl font-bold text-gray-200 uppercase"> Plagiarism Checker</h1>
+    </a>
+    <nav class="hidden md:flex space-x-4">
+      <a href="index.html" class="text-gray-400 hover:text-[#027e6f]">Home</a>
+      <a href="history.html" class="text-[#027e6f]">History</a>
+    </nav>
 
-  <section class="max-w-7xl mx-auto mt-32 bg-transparent p-8">
-    <h2 class="text-xl font-semibold mb-4 text-white">Past Checks</h2>
-    <table class="w-full border border-gray-300">
+    <button id="menu-btn" class="md:hidden text-gray-200 focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" 
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
+
+  <div id="mobile-menu" 
+       class="fixed top-0 right-0 w-3/4 h-full bg-gray-700 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden z-50">
+    <div class="p-6">
+      <button id="close-btn" class="text-gray-200 mb-6 focus:outline-none">
+        ✕ 
+      </button>
+      <a href="index.html" class="block text-gray-400 hover:text-[#027e6f] py-2">Home</a>
+      <a href="history.html" class="block text-[#027e6f] py-2">History</a>
+    </div>
+  </div>
+</header>
+
+<section class="max-w-7xl mx-auto mt-32 bg-transparent p-4 sm:p-8">
+  <h2 class="text-xl font-semibold mb-4 text-white">Past Checks</h2>
+
+  <!-- Responsive table wrapper -->
+  <div class="overflow-x-auto">
+    <table class="w-full border border-gray-300 min-w-[500px]">
       <thead>
         <tr class="bg-gray-400 text-left">
           <th class="p-3 border">Date</th>
@@ -40,38 +67,50 @@
         </tr>
       </tbody>
     </table>
-  </section>
-
-  <div id="reportModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-    <div class="bg-white w-3/4 md:w-1/2 rounded-lg shadow-lg p-6 relative">
-      <h3 class="text-xl font-semibold mb-4">Plagiarism Report</h3>
-      <p class="mb-4 text-gray-700">
-        File: <strong>project.docx</strong><br>
-        Date Checked: <strong>2025-08-11</strong><br>
-        Plagiarism Percentage: <span class="text-red-600 font-bold">45%</span>
-      </p>
-      <div class="bg-gray-100 p-4 rounded-lg max-h-60 overflow-y-auto">
-        <p><strong>Details:</strong></p>
-        <ul class="list-disc list-inside text-gray-700">
-          <li>Matches found from: <em>example.com</em></li>
-          <li>Similar content in section 2 of your file</li>
-          <li>Recommended to rewrite introduction paragraph</li>
-        </ul>
-      </div>
-      <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-500 hover:text-black text-2xl">&times;</button>
-    </div>
   </div>
+</section>
 
-  <script>
-    function openModal() {
-      document.getElementById("reportModal").classList.remove("hidden");
-      document.getElementById("reportModal").classList.add("flex");
-    }
-    function closeModal() {
-      document.getElementById("reportModal").classList.add("hidden");
-      document.getElementById("reportModal").classList.remove("flex");
-    }
-  </script>
+<div id="reportModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+  <div class="bg-white w-full max-w-lg rounded-lg shadow-lg p-6 relative">
+    <h3 class="text-lg sm:text-xl font-semibold mb-4">Plagiarism Report</h3>
+    <p class="mb-4 text-gray-700 text-sm sm:text-base">
+      File: <strong>project.docx</strong><br>
+      Date Checked: <strong>2025-08-11</strong><br>
+      Plagiarism Percentage: <span class="text-red-600 font-bold">45%</span>
+    </p>
+
+    <div class="bg-gray-100 p-4 rounded-lg max-h-40 sm:max-h-60 overflow-y-auto text-sm sm:text-base">
+      <p><strong>Details:</strong></p>
+      <ul class="list-disc list-inside text-gray-700">
+        <li>Matches found from: <em>example.com</em></li>
+        <li>Similar content in section 2 of your file</li>
+        <li>Recommended to rewrite introduction paragraph</li>
+      </ul>
+    </div>
+
+    <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-500 hover:text-black text-2xl">&times;</button>
+  </div>
+</div>
+
+<script>
+  function openModal() {
+    document.getElementById("reportModal").classList.remove("hidden");
+    document.getElementById("reportModal").classList.add("flex");
+  }
+  function closeModal() {
+    document.getElementById("reportModal").classList.add("hidden");
+    document.getElementById("reportModal").classList.remove("flex");
+  }
+</script>
+
+
+
+
+
+
+
+
+<script src="./static/js/script.js"></script>
 
 </body>
 </html>

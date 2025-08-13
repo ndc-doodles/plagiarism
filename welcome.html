@@ -35,57 +35,52 @@
   </div>
 
   <div class="w-full flex justify-center items-center p-6">
-    <div class="border border-white p-8 rounded-lg shadow-md w-full max-w-md">
-    <h2 class="text-2xl font-bold mb-6 text-center text-white">Create Your Account</h2>
+    <div class="border border-white p-8 rounded-xl shadow-lg w-full max-w-md">
+      <h2 class="text-2xl font-bold text-center mb-6 text-white">Sign in to Your Account</h2>
 
-    <div class="space-y-3">
-      <button class="w-full flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2 ">
-        <img src="https://www.svgrepo.com/show/355037/google.svg" class="w-5 h-5" alt="Google">
-        <h1 class="text-white">Sign in with Google</h1>
-      </button>
-      <button class="flex items-center justify-center w-full px-4 py-2 border border-gray-300 text-black rounded-md ">
+      <div class="space-y-3">
+        <button class="w-full flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2 ">
+          <img src="https://www.svgrepo.com/show/355037/google.svg" class="w-5 h-5 " alt="Google">
+          <h1 class="text-white">Sign in with Google</h1>
+        </button>
+        <button class="flex items-center justify-center w-full px-4 py-2 border border-gray-300  rounded-md5">
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path fill="#fff" d="M17.05 20.28c-.98.95-2.05.8-3.08.35c-1.09-.46-2.09-.48-3.24 0c-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8c1.18-.24 2.31-.93 3.57-.84c1.51.12 2.65.72 3.4 1.8c-3.12 1.87-2.38 5.98.48 7.13c-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25c.29 2.58-2.34 4.5-3.74 4.25"/></svg>
+         <h1 class="text-white pl-1">Continue with Apple</h1> 
+        </button>
+      </div>
 
-  <h1 class="text-white pl-1">Continue with Apple</h1>
-</button>
-
-    </div>
-
-    <div class="flex items-center my-6">
+      <div class="flex items-center my-6">
         <hr class="flex-1 border-gray-300">
         <span class="px-3 text-gray-400 text-sm">or</span>
         <hr class="flex-1 border-gray-300">
       </div>
 
-    <form action="#" method="POST" class="space-y-4">
-      <div>
-        <label class="block text-white mb-1">Username</label>
-        <input type="text" class="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-400 bg-transparent">
-      </div>
-      <div>
-        <label class="block text-white mb-1">Email</label>
-        <input type="email" class="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-400 bg-transparent">
-      </div>
-      <div>
-        <label class="block text-white mb-1">Password</label>
-        <input type="password" class="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-400 bg-transparent">
-      </div>
-      <div>
-        <label class="block text-white mb-1">Confirm Password</label>
-        <input type="password" class="w-full border px-3 py-2 rounded focus:outline-none focus:ring focus:border-blue-400 bg-transparent">
-      </div>
-      <a href="index.html">
-  <button type="button" class="w-full mt-4 bg-[#027e6f] hover:bg-[#027e6f]/60 text-white py-2 rounded">
-    Sign Up
-  </button>
-</a>
+      <form class="space-y-4 text-white">
+        <div>
+          <label class="block text-sm font-medium mb-1">Username</label>
+          <input type="text" class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 bg-transparent :ring-[#027e6f]">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Password</label>
+          <input type="password" class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 bg-transparent focus:ring-[#027e6f]">
+        </div>
 
-    </form>
+        <div class="text-right">
+          <a href="#" class="text-sm text-[#027e6f] hover:underline">Forgot password?</a>
+        </div>
 
-    <p class="text-sm text-center text-gray-500 mt-4">
-      Already have an account? <a href="welcome.html" class="text-[#027e6f] hover:underline">Login</a>
-    </p>
-  </div>
+        <a href="index.html">
+        <button type="button" class="w-full bg-[#027e6f] text-white rounded-lg py-2 hover:bg-[#027e6f]/80 transition">
+          Sign In
+        </button>
+        </a>
+      </form>
+
+      <p class="text-center text-sm text-gray-500 mt-6">
+        Don't have an account?
+        <a href="signup.html" class="text-[#027e6f] hover:underline">Sign up</a>
+      </p>
+    </div>
   </div>
 </div>
 
